@@ -67,9 +67,13 @@
         let lastSpeechTime = 0;
 
         // Request access to the camera
-        async function setupCamera() {
+         async function setupCamera() {
             if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
-                const stream = await navigator.mediaDevices.getUserMedia({ video: { facingMode: 'environment' } }); // Specify back camera
+                const stream = await navigator.mediaDevices.getUserMedia({ 
+                    video: { 
+                        facingMode: 'environment' 
+                    } 
+                });
                 video.srcObject = stream;
                 return new Promise(resolve => {
                     video.onloadedmetadata = () => {
