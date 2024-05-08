@@ -69,7 +69,7 @@
         // Request access to the camera
         async function setupCamera() {
             if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
-                const stream = await navigator.mediaDevices.getUserMedia({ video: true });
+                const stream = await navigator.mediaDevices.getUserMedia({ video: { facingMode: 'environment' } }); // Specify back camera
                 video.srcObject = stream;
                 return new Promise(resolve => {
                     video.onloadedmetadata = () => {
